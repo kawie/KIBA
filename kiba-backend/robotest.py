@@ -7,14 +7,14 @@ LED_01 = 23
 class RoboControl:
 	def __init__(self):
 		GPIO.setup(LED_01, GPIO.OUT)
-		self.reset
+		self.reset()
 
-	def reset():
+	def reset(self):
 	  GPIO.output(LED_01, False)
 
 	def light(self, timer):
-  		while True:
+  		for i in range(timer):
   			GPIO.output(LED_01, True)
-			time.sleep(timer)
+			time.sleep(0.5)
 			GPIO.output(LED_01, False)
-			time.sleep(timer)
+			time.sleep(0.5)
