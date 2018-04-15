@@ -35,20 +35,23 @@ class RoboControl:
 			led.off()
 
 	def makeKIBA(self, percentage):
+		sleepytime = 3.8/100*percentage
+
 		print "KIBA making starts now with percentage", percentage
 		button_led.on()
 		led_01.on()
 		relais_01.on()
-		time.sleep(3.8/100*percentage)
+		print "sleeping for ", sleepytime
+		time.sleep(sleepytime)
 		relais_01.off()
 		led_02.on()
 		relais_02.on()
-		time.sleep(1)
+		print "sleeping for ", 3.8-sleepytime
+		time.sleep(3.8-sleepytime)
 		relais_02.off()
 		led_03.on()
 		print "KIBA poured"
-		time.sleep(3.8-3.8/100*percentage)
-		cup_light.blink()
+		cup_light.blink(5)
 		time.sleep(5)
 		cup_light.off()
 		button_led.off()
