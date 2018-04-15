@@ -46,12 +46,12 @@ class RoboControl:
 		print "sleeping for ", sleepytime
 		time.sleep(sleepytime)
 		relais_01.off()
-		led_02.on()
+		led_03.on()
 		relais_02.on()
 		print "sleeping for ", 3.8-sleepytime
 		time.sleep(3.8-sleepytime)
 		relais_02.off()
-		led_03.on()
+		led_04.on()
 		print "KIBA poured"
 		time.sleep(2)
 		cup_light.blink(5)
