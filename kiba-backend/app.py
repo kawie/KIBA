@@ -1,7 +1,7 @@
 from flask import Flask, request
 from flask_restful import Resource, Api
 from flask_cors import CORS
-from robotest import RoboControl
+from robocontrol import RoboControl
 
 # Flask and CORS setup
 app = Flask(__name__)
@@ -13,7 +13,8 @@ robo = RoboControl()
 class KIBA(Resource):
     def get(self, percentage):
 		print percentage
-		robo.ready()
+		robo.reset()
+		robo.ready(percentage)
 		return {"kiba": percentage}
 
 api.add_resource(KIBA, '/<int:percentage>')
