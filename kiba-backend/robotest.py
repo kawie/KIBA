@@ -1,27 +1,17 @@
-import RPi.GPIO as GPIO, time, os, subprocess
-
-GPIO.setmode(GPIO.BCM)
+import time
+from gpiozero import Button, LED
 
 # LED_01 = 23
-BUTTON_LED = 23
-BUTTON = 24
+button_led = LED(23)
+button = Button(24)
 
 class RoboControl:
-	def __init__(self):
-		GPIO.setup(BUTTON_LED, GPIO.OUT)
-		GPIO.setup(BUTTON, GPIO.IN)
-		self.reset()
-
 	def reset(self):
-		GPIO.output(BUTTON_LED, False)
-
-	def light(self, channel):
-		print "FIRED"
-		GPIO.output(BUTTON_LED, True)
-		time.sleep(20)
-		GPIO.cleanup()
+		button_led.off()
 
 	def ready(self):
-		print "READY"
-		GPIO.add_event_detect(BUTTON, GPIO.RISING, callback=self.light, bouncetime=200)
-		
+		while True:
+			if button.is_pressed:
+				button_led.on()
+			else:
+				button_led.blink()
