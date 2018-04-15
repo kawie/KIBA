@@ -40,6 +40,8 @@ class RoboControl:
 		print "KIBA making starts now with percentage", percentage
 		button_led.on()
 		led_01.on()
+		time.sleep(2)
+		led_02.on()
 		relais_01.on()
 		print "sleeping for ", sleepytime
 		time.sleep(sleepytime)
@@ -51,6 +53,7 @@ class RoboControl:
 		relais_02.off()
 		led_03.on()
 		print "KIBA poured"
+		time.sleep(2)
 		cup_light.blink(5)
 		time.sleep(5)
 		cup_light.off()
