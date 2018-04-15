@@ -8,14 +8,13 @@ led_04 = LED(5)
 
 status_leds = [led_01, led_02, led_03, led_04]
 
-cup_light = LED(25)
-
 button_led = LED(23)
 button = Button(24)
 button_reset = Button(12)
 
-relais_01 = OutputDevice(17)
-relais_02 = OutputDevice(4)
+cup_light = OutputDevice(25, active_high=False)
+relais_01 = OutputDevice(17, active_high=False)
+relais_02 = OutputDevice(4, active_high=False)
 
 class RoboControl:
 	def reset(self):
@@ -54,7 +53,7 @@ class RoboControl:
 		led_04.on()
 		print "KIBA poured"
 		time.sleep(2)
-		cup_light.blink(5)
+		cup_light.on()
 		time.sleep(5)
 		cup_light.off()
 		button_led.off()
