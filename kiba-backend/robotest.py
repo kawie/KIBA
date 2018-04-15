@@ -1,5 +1,5 @@
 import time
-from gpiozero import Button, LED
+from gpiozero import Button, LED, OutputDevice
 
 led_01 = LED(22)
 led_02 = LED(26)
@@ -14,8 +14,8 @@ button_led = LED(23)
 button = Button(24)
 button_reset = Button(12)
 
-relais_01 = DigitalOutputDevice(17)
-relais_02 = DigitalOutputDevice(4)
+relais_01 = OutputDevice(17)
+relais_02 = OutputDevice(4)
 
 class RoboControl:
 	def reset(self):
@@ -23,17 +23,17 @@ class RoboControl:
 		relais_01.off()
 		relais_02.off()
 		cup_light.off()
-		status_leds_off()
+		self.status_leds_off()
 
-	def status_leds_on():
+	def status_leds_on(self):
 		for led in status_leds:
 			led.on()
 
-	def status_leds_off():
+	def status_leds_off(self):
 		for led in status_leds:
 			led.off()
 
-	def makeKIBA():
+	def makeKIBA(self):
 		print "KIBA making starts now"
 		button_led.on()
 		led_01.on()
@@ -50,8 +50,8 @@ class RoboControl:
 		cup_light.blink()
 		time.sleep(5)
 		cup_light.off()
-		status_leds_off()
+		self.status_leds_off()
 
-	def ready(self, percentage):
+	def ready(self):
 		button.when_released = button_led.blink()
-		button.when_pressed = makeKIBA
+		button.when_pressed = self.makeKIBA
