@@ -1,10 +1,10 @@
 import time
 from gpiozero import Button, LED, OutputDevice
 
-led_01 = LED(22)
-led_02 = LED(26)
-led_03 = LED(5)
-led_04 = LED(6)
+led_01 = LED(26)
+led_02 = LED(13)
+led_03 = LED(6)
+led_04 = LED(5)
 
 status_leds = [led_01, led_02, led_03, led_04]
 
