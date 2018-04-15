@@ -13,7 +13,7 @@ robo = RoboControl()
 class KIBA(Resource):
     def get(self, percentage):
 		print percentage
-		robo.light(percentage)
+		robo.ready()
 		return {"kiba": percentage}
 
 api.add_resource(KIBA, '/<int:percentage>')
