@@ -10,8 +10,5 @@ class RoboControl:
 		button_led.off()
 
 	def ready(self):
-		while True:
-			if button.is_pressed:
-				button_led.on()
-			else:
-				button_led.blink()
+		button.when_pressed = button_led.on
+		button.when_released = button_led.off
