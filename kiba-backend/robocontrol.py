@@ -58,7 +58,7 @@ class RoboControl:
 	def mixloop(self, percentage):
 		while True:
 			# TODO: aktivierung durch event (die website)
-			while (!GPIO.input(BUTTON)):
+			while not GPIO.input(BUTTON):
 				GPIO.output(BUTTON_LED, True)
 				time.sleep(0.1)
 				GPIO.output(BUTTON_LED, False)
