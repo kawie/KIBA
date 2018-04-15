@@ -1,6 +1,6 @@
 import RPi.GPIO as GPIO, time, os, subprocess
 #import testGPIO as GPIO
-import time
+#import time
 
 # Raspberry GPIO setup
 GPIO.setmode(GPIO.BCM)
@@ -58,30 +58,30 @@ class RoboControl:
 	def mixloop(self, percentage):
 		while True:
 			# TODO: aktivierung durch event (die website)
-			while True:
+			while (!GPIO.input(BUTTON)):
 				GPIO.output(BUTTON_LED, True)
 				time.sleep(0.1)
 				GPIO.output(BUTTON_LED, False)
 				time.sleep(0.1)
 
-				# TODO: variable x kommt von website, variable y ist feste Zeit (z.b 3.8) - x
-				if (GPIO.input(BUTTON)):
-					print("drinks stirred")
-					GPIO.output(BUTTON_LED, True)
-					GPIO.output(LED_01, True)
-					time.sleep(0.2)
-					GPIO.output(LED_02, True)
-					GPIO.output(REL_01, True)
-					# time.sleep(x)
-					GPIO.output(LED_03, True)
-					GPIO.output(REL_01, False)
-					GPIO.output(REL_02, True)
-					# time.sleep(y)
-					GPIO.output(LED_04, True)
-					GPIO.output(REL_02, False)
-					print("drinks delivered")
-					time.sleep(0.2)
-					GPIO.output(LED_05, True)
+			# TODO: variable x kommt von website, variable y ist feste Zeit (z.b 3.8) - x
+			if (GPIO.input(BUTTON)):
+				print("drinks stirred")
+				GPIO.output(BUTTON_LED, True)
+				GPIO.output(LED_01, True)
+				time.sleep(0.2)
+				GPIO.output(LED_02, True)
+				GPIO.output(REL_01, True)
+				# time.sleep(x)
+				GPIO.output(LED_03, True)
+				GPIO.output(REL_01, False)
+				GPIO.output(REL_02, True)
+				# time.sleep(y)
+				GPIO.output(LED_04, True)
+				GPIO.output(REL_02, False)
+				print("drinks delivered")
+				time.sleep(0.2)
+				GPIO.output(LED_05, True)
 
 				for i in range(5):
 					GPIO.output(CUP_LIGHT, True)
