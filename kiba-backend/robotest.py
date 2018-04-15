@@ -15,12 +15,13 @@ class RoboControl:
 	def reset(self):
 		GPIO.output(BUTTON_LED, False)
 
-	def light():
+	def light(self, channel):
 		print "FIRED"
 		GPIO.output(BUTTON_LED, True)
-		time.sleep(2)
+		time.sleep(20)
+		GPIO.cleanup()
 
 	def ready(self):
 		print "READY"
-		GPIO.add_event_detect(BUTTON, GPIO.RISING)
-		GPIO.add_event_callback(BUTTON, light)
+		GPIO.add_event_detect(BUTTON, GPIO.RISING, callback=self.light, bouncetime=200)
+		
