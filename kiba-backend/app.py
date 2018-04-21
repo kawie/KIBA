@@ -31,4 +31,4 @@ api.add_resource(KIBA, '/<int:percentage>')
 api.add_resource(JobData, '/jobdata/<int:jobid>')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+	app.run(debug=True)

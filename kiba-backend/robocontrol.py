@@ -17,10 +17,13 @@ relais_01 = OutputDevice(17, active_high=False)
 relais_02 = OutputDevice(4, active_high=False)
 
 class RoboControl:
+	def __init__(self):
+		self.reset()
+
 	def reset(self):
-		button_led.off()
 		relais_01.off()
 		relais_02.off()
+		button_led.off()
 		cup_light.off()
 		self.status_leds_off()
 		print "RoboControl reset complete"
