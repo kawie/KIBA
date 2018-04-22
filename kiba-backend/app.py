@@ -18,6 +18,25 @@ class KIBA(Resource):
 		robo.ready(percentage)
 		return {"kiba": percentage}
 
+class KIBAreset(Resource):
+    def get(self):
+		robo.reset()
+		return {"kiba": "reset"}
+
+class KIBAclean(Resource):
+    def get(self):
+		robo.clean()
+		return {"kiba": "clean"}
+
+class KIBAlights(Resource):
+    def get(self, command):
+    	if(command == "on"):
+			robo.lights("on")
+			return {"kiba": "lights on"}
+		else:
+			robo.lights("off")
+			return {"kiba": "lights off"}
+
 class JobData(Resource):
 	def get(self, jobid):
 		r = requests.get("https://job-futuromat.iab.de/api/job/" + str(jobid))
@@ -27,7 +46,10 @@ class JobData(Resource):
 			content_type = r.headers['content-type']
 		)
 
-api.add_resource(KIBA, '/<int:percentage>')
+api.add_resource(KIBA, '/kiba/<int:percentage>')
+api.add_resource(KIBAreset, '/kiba/reset')
+api.add_resource(KIBAclean, '/kiba/clean')
+api.add_resource(KIBAlights, '/kiba/lights/<string:command>')
 api.add_resource(JobData, '/jobdata/<int:jobid>')
 
 if __name__ == '__main__':

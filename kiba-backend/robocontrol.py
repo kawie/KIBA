@@ -36,6 +36,17 @@ class RoboControl:
 		for led in status_leds:
 			led.off()
 
+	def lights(self, command):
+		if(command == "on"):
+			cup_light.on()
+			self.status_leds_on()
+		else:
+			cup_light.off()
+			self.status_leds_off()
+
+	def clean(self):
+		self.ready(500)
+
 	def makeKIBA(self, percentage):
 		sleepytime = 3.8/100*percentage
 
