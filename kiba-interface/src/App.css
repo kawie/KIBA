@@ -1,28 +1,130 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto|Ubuntu+Mono');
+
+body {
+  background-color: #102C30;
+  color: #EEB44B;
+  font-size: 2em;
+  font-family: 'Ubuntu Mono', monospace;
+}
+
 .App {
   text-align: center;
 }
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.cursor {
+  animation: blinking 1s ease-in-out infinite;
+}
+.formPage {
+  max-width: 500px;
+  min-height: 450px;
+  margin: 50px auto;
+  padding: 50px;
+  border: 5px solid #EEB44B;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+button, input {
+  border: 5px solid #EEB44B;
+  color: #EEB44B;
+  background: transparent;
+  font-size: 1.2em;
+}
+.resultPage p {
+  font-size: 0.8em;
+  text-align: left;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+  margin: 22.5px 0;
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 5px;
+  cursor: pointer;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px rgba(13, 13, 13, 0);
+  background: #eeb44b;
+  border-radius: 25px;
+  border: 0px solid #010101;
+}
+input[type=range]::-webkit-slider-thumb {
+  box-shadow: 0px 0px 0px rgba(0, 0, 62, 0.67), 0px 0px 0px rgba(0, 0, 88, 0.67);
+  border: 7.5px solid rgba(238, 180, 75, 0.57);
+  height: 50px;
+  width: 50px;
+  border-radius: 50px;
+  background: #102c30;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -22.5px;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #eeb44b;
+}
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 5px;
+  cursor: pointer;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px rgba(13, 13, 13, 0);
+  background: #eeb44b;
+  border-radius: 25px;
+  border: 0px solid #010101;
+}
+input[type=range]::-moz-range-thumb {
+  box-shadow: 0px 0px 0px rgba(0, 0, 62, 0.67), 0px 0px 0px rgba(0, 0, 88, 0.67);
+  border: 7.5px solid rgba(238, 180, 75, 0.57);
+  height: 50px;
+  width: 50px;
+  border-radius: 50px;
+  background: #102c30;
+  cursor: pointer;
+}
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 5px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+input[type=range]::-ms-fill-lower {
+  background: #eeb44b;
+  border: 0px solid #010101;
+  border-radius: 50px;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px rgba(13, 13, 13, 0);
+}
+input[type=range]::-ms-fill-upper {
+  background: #eeb44b;
+  border: 0px solid #010101;
+  border-radius: 50px;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px rgba(13, 13, 13, 0);
+}
+input[type=range]::-ms-thumb {
+  box-shadow: 0px 0px 0px rgba(0, 0, 62, 0.67), 0px 0px 0px rgba(0, 0, 88, 0.67);
+  border: 7.5px solid rgba(238, 180, 75, 0.57);
+  height: 50px;
+  width: 50px;
+  border-radius: 50px;
+  background: #102c30;
+  cursor: pointer;
+  height: 5px;
+}
+input[type=range]:focus::-ms-fill-lower {
+  background: #eeb44b;
+}
+input[type=range]:focus::-ms-fill-upper {
+  background: #eeb44b;
 }
 
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+@keyframes blinking {
+    from, to {
+        color: transparent;
+    }
+    50% {
+        color: #EEB44B;
+    }
 }
