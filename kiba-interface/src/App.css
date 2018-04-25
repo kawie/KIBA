@@ -14,8 +14,9 @@ body {
   animation: blinking 1s ease-in-out infinite;
 }
 .formPage {
-  max-width: 500px;
-  min-height: 450px;
+  max-width: 450px;
+  height: 650px;
+  overflow: scroll;
   margin: 50px auto;
   padding: 50px;
   border: 5px solid #EEB44B;
@@ -32,6 +33,7 @@ button, input {
 .resultPage p {
   font-size: 0.8em;
   text-align: left;
+  hyphens: auto;
 }
 .image_picker {
   width: 450px!important;

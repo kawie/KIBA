@@ -35,10 +35,11 @@ var inserts = {
   ],
   'sentence6': [
       'Dein unbestechliches Gefühl für Wahrheit und Gerechtigkeit verleiht Dir ein starkes moralisches Rückgrat in der automatisierten Zusammenarbeit.',
-      'Dein Kontakt zur Umwelt findet am liebsten gefiltert statt. Beste Voraussetzung für die digitalen Zukunftswelten. Als Filter setzt Du ein systematisierendes und Überblick verschaffendes Denken ein.',
+      'Als Filter setzt Du ein systematisierendes und Überblick verschaffendes Denken ein. Beste Voraussetzung für die digitalen Zukunftswelten.',
       'Deshalb trägst Du durch intensive Planung Deiner Aktivitäten dazu bei, dass die automatisierte Zusammenarbeit besonders organisch abläuft.',
-      'Beziehungen sind für Dich die wichtigste Res­source eines Menschen und das Streben nach erfüllten Beziehungen be­stimmt auch dein Leben in der automatisierten Zukunft. Deshalb engagierst du dich für das Wohlergehen von Automaten.',
-      'Für Dich hört sich die automatisierte Zukunft kompliziert und nach einer energetischen Pattsituation an. Du erkennst aber den Vorteil davon Projekte von allen Seiten zu beleuchten, was Dich letztendlich auf das gemeinsame Ziel einschwingen lässt.'
+      'Beziehungen sind für Dich die wichtigste Res­source und das Streben nach erfüllten Beziehungen be­stimmt auch dein Leben in der automatisierten Zukunft. Deshalb engagierst du dich für das Wohlergehen von Automaten.',
+      'Für Dich hört sich die automatisierte Zukunft nach einer energetischen Pattsituation an. Du erkennst aber den Vorteil davon, Projekte von allen Seiten zu beleuchten, was Dich letztendlich auf das gemeinsame Ziel einschwingen lässt.',
+      'Du bist ganz eng im Loop mit deinen kybernetischen Schwingungen.'
     ],
 
 
@@ -67,13 +68,20 @@ class ResultPage extends React.Component {
 
     return (
       <div className="resultPage">
-        <p>Als { this.randomValueFromArray(inserts.question3[this.props.values.question3]) } { this.props.values.jobTitle } siehst du der automatisierten Zukunft { this.randomValueFromArray(inserts.question1[this.props.values.question1]) } entgegen.</p>
-        <p>Dein { this.randomValueFromArray(inserts.adjective5) }es Interesse an Neuerungen und Dein { this.randomValueFromArray(inserts.question4[this.props.values.question4]) } zeigen, dass deine persönlichen Mensch-Maschinen-Beziehungen in Zukunft { this.randomValueFromArray(inserts.adjective5) } aussehen werden. { this.randomValueFromArray(inserts.sentence6) } Das macht Dich äußerst beliebt bei Deinen Roboter-Kollegen.</p>
-        <p>Wir empfehlen Dir daher nur noch eine Fortbildung für para-autorisierte Trend-Resilienz, um der Automatisierung bestens ausgebildet entgegen zu schreiten.</p>
-        <p>Jetzt bekommst du Dein KIBA!<br/>
-        Dein KIBA besteht aus { this.calculateKIBAScore(this.props.values) }% KI und { 100 - this.calculateKIBAScore(this.props.values) }% BA.</p>
-        <p>Das individuell auf Dich abgestimmte KIBA-Elixier bringt dich in Automatisierungs-Balance. KI motiviert mit seinem hohen Anteil an Antioxidantien zum Lernen neuer Skills. BA wirkt ausgleichend gegen etwaige Substituierbarkeits-Ängste und virtuelle Sorgen, denn das enthaltene Magnesium stärkt die Nerven und bekämpft zu hohen Blutdruck.</p>
-        <p>Ergebnis: { JSON.stringify(this.props.values, null, 2) }</p>
+      {this.props.page == 1 &&
+        <div>
+          <p>Als { this.randomValueFromArray(inserts.question3[this.props.values.question3]) } { this.props.values.jobTitle } siehst du der automatisierten Zukunft { this.randomValueFromArray(inserts.question1[this.props.values.question1]) } entgegen.</p>
+          <p>Dein { this.randomValueFromArray(inserts.adjective5) }es Interesse an Neuerungen und Dein { this.randomValueFromArray(inserts.question4[this.props.values.question4]) } zeigen, dass deine persönlichen Mensch-Maschinen-Beziehungen in Zukunft { this.randomValueFromArray(inserts.adjective5) } aussehen werden. { this.randomValueFromArray(inserts.sentence6) } Das macht Dich äußerst beliebt bei Deinen Roboter-Kolleg/innen.</p>
+          <p>Wir empfehlen Dir daher nur noch eine Fortbildung für para-autorisierte Trend-Resilienz, um der Automatisierung bestens ausgebildet entgegen zu schreiten.</p>
+        </div>
+      }
+      {this.props.page == 2 &&
+        <div>
+          <p>Jetzt bekommst du Dein KIBA!<br/>
+          Dein KIBA besteht aus { this.calculateKIBAScore(this.props.values) }% KI und { 100 - this.calculateKIBAScore(this.props.values) }% BA.</p>
+          <p>Das individuell auf Dich abgestimmte KIBA-Elixier bringt dich in Automatisierungs-Balance. KI motiviert mit seinem hohen Anteil an Antioxidantien zum Lernen neuer Skills. BA wirkt ausgleichend gegen etwaige Substituierbarkeits-Ängste und virtuelle Sorgen, denn das enthaltene Magnesium stärkt die Nerven und bekämpft zu hohen Blutdruck.</p>
+        </div>
+      }
       </div>
     );
   }

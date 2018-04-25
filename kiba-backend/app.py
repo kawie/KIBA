@@ -12,25 +12,25 @@ CORS(app)
 robo = RoboControl()
 
 class KIBA(Resource):
-    def get(self, percentage):
+	def get(self, percentage):
 		print percentage
 		robo.reset()
 		robo.ready(percentage)
 		return {"kiba": percentage}
 
 class KIBAreset(Resource):
-    def get(self):
+	def get(self):
 		robo.reset()
 		return {"kiba": "reset"}
 
 class KIBAclean(Resource):
-    def get(self):
+	def get(self):
 		robo.clean()
 		return {"kiba": "clean"}
 
 class KIBAlights(Resource):
-    def get(self, command):
-    	if(command == "on"):
+	def get(self, command):
+		if(command == "on"):
 			robo.lights("on")
 			return {"kiba": "lights on"}
 		else:

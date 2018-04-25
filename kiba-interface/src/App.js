@@ -119,7 +119,14 @@ class App extends Component {
               <Field
                 name="resultPage"
                 render={({ form: { values } }) =>
-                (<ResultPage values={values} />)}
+                (<ResultPage values={values} page="1" />)}
+              />
+            </Wizard.Page>
+            <Wizard.Page>
+              <Field
+                name="resultPage"
+                render={({ form: { values } }) =>
+                (<ResultPage values={values} page="2" />)}
               />
             </Wizard.Page>
           </Wizard>

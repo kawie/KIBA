@@ -12,7 +12,7 @@ button_led = LED(23)
 button = Button(24)
 button_reset = Button(12)
 
-cup_light = OutputDevice(25, active_high=False)
+cup_light = OutputDevice(27, active_high=False)
 relais_01 = OutputDevice(17, active_high=False)
 relais_02 = OutputDevice(4, active_high=False)
 

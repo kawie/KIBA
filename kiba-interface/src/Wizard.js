@@ -56,7 +56,7 @@ class Wizard extends React.Component {
         render={({ values, handleSubmit, isSubmitting, handleReset, setFieldValue }) => (
           <form onSubmit={handleSubmit}>
             <div className="formPage">{activePage}</div>
-            <div className="progress">Seite { page + 1 } / 9</div>
+            <div className="progress">Seite { page + 1 } / 10</div>
             <div className="buttons">
               {page > 0 && (
                 <button type="button" onClick={this.previous}>
