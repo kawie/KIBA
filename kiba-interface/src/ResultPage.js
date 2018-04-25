@@ -57,7 +57,7 @@ class ResultPage extends React.Component {
   }
 
   render() {
-    axios.get('http://localhost:5000/kiba/' + this.calculateKIBAScore(this.props.values))
+    axios.get('http://' + this.props.values.serverIP + ':5000/kiba/' + this.calculateKIBAScore(this.props.values))
       .then((response) => {
         console.log(response)
       })

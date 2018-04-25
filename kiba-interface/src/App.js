@@ -7,6 +7,7 @@ import QuestionComponent from './QuestionComponent.js'
 import JobInput from './JobInput.js'
 import TaskRating from './TaskRating.js'
 import ResultPage from './ResultPage.js'
+import AdminPage from './AdminPage.js'
 import { Formik, Field } from 'formik';
 
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
@@ -53,7 +54,8 @@ class App extends Component {
               question2: 2,
               question3: 2,
               question4: 2,
-              captchaComplete: false
+              captchaComplete: false,
+              serverIP: 'localhost'
             }}
             onSubmit={(values, actions) => {
               sleep(300).then(() => {
@@ -66,6 +68,11 @@ class App extends Component {
               <div>
                 <h1>KIBA</h1>
                 <p style={{ lineHeight: '2em' }}>V 0.1.0 ©️2018<br/>Int. KIBA Systems<br/>All systems ready!<span className="cursor">&#9608;</span></p>
+                <Field
+                  name="adminPage"
+                  render={({ form: { values } }) =>
+                  (<AdminPage values={values} />)}
+                />
               </div>
             </Wizard.Page>
             <Wizard.Page>
@@ -73,7 +80,6 @@ class App extends Component {
                 <label>Was ist dein aktueller Beruf?</label>
                 <Field
                   name="jobTitle"
-                  component={JobInput}
                   render={({form: { setFieldValue }}) => (<JobInput onComplete={(job, jobTitle) => { setFieldValue('job', job); setFieldValue('jobTitle', jobTitle); }} />)}
                   type="text"
                   placeholder="Roboter"
@@ -84,7 +90,7 @@ class App extends Component {
               <Field
                 name="taskRating"
                 render={({ form: { values, setFieldValue } }) =>
-                (<TaskRating jobID={ values.job.id } onComplete={(futuromatPotential) => { setFieldValue('futuromatPotential', futuromatPotential) }} />)}
+                (<TaskRating values={ values } onComplete={(futuromatPotential) => { setFieldValue('futuromatPotential', futuromatPotential) }} />)}
               />
             </Wizard.Page>
             <Wizard.Page>
