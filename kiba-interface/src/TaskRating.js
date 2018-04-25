@@ -11,11 +11,12 @@ class TaskRating extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:5000/jobdata/271')
+    axios.get('http://localhost:5000/jobdata/' + this.props.jobID)
       .then((response) => {
         console.log(response)
         const skills = response.data.skills.map(obj => ({id: obj.id, name: obj.skill, replaceable: obj.replaceable}));
         this.setState({ skills });
+        this.props.onComplete(response.data.potential);
       })
       .catch(function (error) {
         console.log(error);

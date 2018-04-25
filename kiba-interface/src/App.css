@@ -33,6 +33,35 @@ button, input {
   font-size: 0.8em;
   text-align: left;
 }
+.image_picker {
+  width: 450px!important;
+  margin: auto;
+}
+.image_picker > .responsive > img{
+  width: 125px!important;
+  height: 125px!important;
+}
+.captchaButton {
+  float:right;
+  margin-top:7px;
+  margin-right: 7px;
+}
+.react-autosuggest__suggestions-list {
+  list-style-type: none;
+}
+.react-autosuggest__suggestions-container--open {
+  max-height: 300px;
+  overflow: scroll;
+}
+.react-autosuggest__suggestions-list li {
+  font-size: .8em;
+  text-align: left;
+  margin-bottom: 3px;
+}
+.react-autosuggest__suggestion--highlighted{
+  background-color: #EEB44B;
+  color: #102C30;
+}
 
 input[type=range] {
   -webkit-appearance: none;

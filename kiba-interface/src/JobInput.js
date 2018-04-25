@@ -12,8 +12,6 @@ const getSuggestions = value => {
 	return [Number(key), THESAURUS[key]];
 	});
 
-	console.log(THESAURUS);
-
   return inputLength === 0 ? [] : THESAURUS.filter(item =>
     item.ss[0].toLowerCase().slice(0, inputLength) === inputValue
   );
@@ -30,23 +28,6 @@ const renderSuggestion = suggestion => (
     {suggestion.beruf}
   </div>
 );
-
-const formikEnhancer = withFormik({
-  mapPropsToValues: props => ({
-    job: {},
-  }),
-  handleSubmit: (values, { setSubmitting }) => {
-    const payload = {
-      ...values,
-      topics: values.topics.map(t => t.value),
-    };
-    setTimeout(() => {
-      alert(JSON.stringify(payload, null, 2));
-      setSubmitting(false);
-    }, 1000);
-  },
-  displayName: 'JobInput',
-});
 
 class JobInput extends React.Component {
   constructor() {
@@ -86,10 +67,7 @@ class JobInput extends React.Component {
 
   onSuggestionSelected = (event, { suggestion }) => {
     console.log(suggestion);
-    this.setState({
-      job: suggestion,
-      jobTitle: suggestion.beruf,
-    });
+    this.props.onComplete(suggestion, suggestion.beruf);
   };
 
   render() {
@@ -112,9 +90,11 @@ class JobInput extends React.Component {
         getSuggestionValue={getSuggestionValue}
         renderSuggestion={renderSuggestion}
         inputProps={inputProps}
+        highlightFirstSuggestion={true}
+        focusInputOnSuggestionClick={false}
       />
     );
   }
 }
 
-export default formikEnhancer(JobInput);
+export default JobInput;

@@ -46,8 +46,9 @@ class App extends Component {
       <div className="App">
           <Wizard
             initialValues={{
-              job: '',
+              job: {},
               jobTitle: '',
+              futuromatPotential: 0,
               question1: 2,
               question2: 2,
               question3: 2,
@@ -73,13 +74,18 @@ class App extends Component {
                 <Field
                   name="jobTitle"
                   component={JobInput}
+                  render={({form: { setFieldValue }}) => (<JobInput onComplete={(job, jobTitle) => { setFieldValue('job', job); setFieldValue('jobTitle', jobTitle); }} />)}
                   type="text"
                   placeholder="Roboter"
                 />
               </div>
             </Wizard.Page>
             <Wizard.Page>
-              <TaskRating jobID="271" />
+              <Field
+                name="taskRating"
+                render={({ form: { values, setFieldValue } }) =>
+                (<TaskRating jobID={ values.job.id } onComplete={(futuromatPotential) => { setFieldValue('futuromatPotential', futuromatPotential) }} />)}
+              />
             </Wizard.Page>
             <Wizard.Page>
               <QuestionComponent name="question1"
@@ -96,6 +102,12 @@ class App extends Component {
             <Wizard.Page>
               <QuestionComponent name="question4"
               question="Regeln aergern mich." />
+            </Wizard.Page>
+            <Wizard.Page>
+              <Field
+                    name="captchaComplete"
+                    render={({form: { setFieldValue }}) => (<Captcha onComplete={(response) => { setFieldValue('captchaComplete', response); }} />)}
+                  />
             </Wizard.Page>
             <Wizard.Page>
               <Field

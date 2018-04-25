@@ -1,5 +1,6 @@
 import React from 'react';
 import { Formik, Field } from 'formik';
+import axios from 'axios';
 
 var inserts = {
   'question1': {
@@ -49,14 +50,28 @@ class ResultPage extends React.Component {
     return array[random];
   }
 
+  calculateKIBAScore(values) {
+    var futuromatPotential = this.props.values.futuromatPotential;
+    var psychoPotential = 50 + this.props.values.question1 + this.props.values.question2 + this.props.values.question3 + this.props.values.question4;
+    return futuromatPotential + psychoPotential / 2
+  }
+
   render() {
+    axios.get('http://localhost:5000/kiba/' + this.calculateKIBAScore(this.props.values))
+      .then((response) => {
+        console.log(response)
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
     return (
       <div className="resultPage">
-        <p>Als { this.randomValueFromArray(inserts.question3[this.props.values.question3]) } [Koch/Köchin] siehst du der automatisierten Zukunft { this.randomValueFromArray(inserts.question1[this.props.values.question1]) } entgegen.</p>
+        <p>Als { this.randomValueFromArray(inserts.question3[this.props.values.question3]) } { this.props.values.jobTitle } siehst du der automatisierten Zukunft { this.randomValueFromArray(inserts.question1[this.props.values.question1]) } entgegen.</p>
         <p>Dein { this.randomValueFromArray(inserts.adjective5) }es Interesse an Neuerungen und Dein { this.randomValueFromArray(inserts.question4[this.props.values.question4]) } zeigen, dass deine persönlichen Mensch-Maschinen-Beziehungen in Zukunft { this.randomValueFromArray(inserts.adjective5) } aussehen werden. { this.randomValueFromArray(inserts.sentence6) } Das macht Dich äußerst beliebt bei Deinen Roboter-Kollegen.</p>
         <p>Wir empfehlen Dir daher nur noch eine Fortbildung für para-autorisierte Trend-Resilienz, um der Automatisierung bestens ausgebildet entgegen zu schreiten.</p>
         <p>Jetzt bekommst du Dein KIBA!<br/>
-        Dein KIBA besteht aus [37]% KI und [63]% BA.</p>
+        Dein KIBA besteht aus { this.calculateKIBAScore(this.props.values) }% KI und { 100 - this.calculateKIBAScore(this.props.values) }% BA.</p>
         <p>Das individuell auf Dich abgestimmte KIBA-Elixier bringt dich in Automatisierungs-Balance. KI motiviert mit seinem hohen Anteil an Antioxidantien zum Lernen neuer Skills. BA wirkt ausgleichend gegen etwaige Substituierbarkeits-Ängste und virtuelle Sorgen, denn das enthaltene Magnesium stärkt die Nerven und bekämpft zu hohen Blutdruck.</p>
         <p>Ergebnis: { JSON.stringify(this.props.values, null, 2) }</p>
       </div>

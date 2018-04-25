@@ -4,12 +4,18 @@ import ImagePicker from 'react-image-picker'
 import 'react-image-picker/dist/index.css'
 
 //import images from local
-import img1 from './200.jpg'
-import img2 from './201.jpg'
-import img3 from './202.jpg'
-import img4 from './203.jpg'
+import sample from './KIBA_sample.jpg'
+import img1 from './KIBA_captcha1.jpg'
+import img2 from './KIBA_captcha2.jpg'
+import img3 from './KIBA_captcha3.jpg'
+import img4 from './KIBA_captcha4.jpg'
+import img5 from './KIBA_captcha5.jpg'
+import img6 from './KIBA_captcha6.jpg'
+import img7 from './KIBA_captcha7.jpg'
+import img8 from './KIBA_captcha8.jpg'
+import img9 from './KIBA_captcha9.jpg'
 
-const imageList = [img1, img2, img3, img4]
+const imageList = [img1, img2, img3, img4, img5, img6, img7, img8, img9]
 
 class Captcha extends Component {
   constructor(props) {
@@ -27,13 +33,13 @@ class Captcha extends Component {
   render() {
     return (
       <div>
-        <p>Wähle alle Bilder mit KIBA.</p>
+        <p>Wählen Sie alle Bilder mit KIBA aus.</p>
         <ImagePicker
           images={imageList.map((image, i) => ({src: image, value: i}))}
           onPick={this.onPick}
           multiple={true}
         />
-        <button type="button" onClick={() => this.props.onComplete(true)}>OK</button>
+        <button type="button" className="captchaButton" onClick={() => this.props.onComplete(true)}>Bestätigen</button>
       </div>
     )
   }
