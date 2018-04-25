@@ -68,10 +68,14 @@ class RoboControl:
 		print "KIBA poured"
 		time.sleep(2)
 		cup_light.on()
-		time.sleep(5)
+		time.sleep(3)
 		cup_light.off()
+		time.sleep(2)
+		cup_light.on()
+		time.sleep(3)
 		button_led.off()
 		self.status_leds_off()
+		cup_light.off()
 		print "KIBA process finished"
 
 	def ready(self, percentage):
