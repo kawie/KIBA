@@ -4,13 +4,12 @@ from gpiozero import Button, LED, OutputDevice
 led_01 = LED(26)
 led_02 = LED(13)
 led_03 = LED(6)
-led_04 = LED(5)
+led_04 = LED(12)
 
 status_leds = [led_01, led_02, led_03, led_04]
 
 button_led = LED(23)
 button = Button(24)
-button_reset = Button(12)
 
 cup_light = OutputDevice(27, active_high=False)
 relais_01 = OutputDevice(17, active_high=False)

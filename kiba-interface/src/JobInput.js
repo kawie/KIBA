@@ -5,15 +5,15 @@ import { THESAURUS } from './thesaurus.js';
 
 // Teach Autosuggest how to calculate suggestions for any given input value.
 const getSuggestions = value => {
-  const inputValue = value.trim().toLowerCase();
+  const inputValue = value.trim().toUpperCase().replace(/\s+/g, ' ').replace(/Ä/g, 'AE').replace(/Ö/g, 'OE').replace(/Ü/g, 'UE').replace(/ß/g, 'SS').replace(/\//g, '');
   const inputLength = inputValue.length;
 
 	var result = Object.keys(THESAURUS).map(function(key) {
-	return [Number(key), THESAURUS[key]];
+	 return [Number(key), THESAURUS[key]];
 	});
 
-  return inputLength === 0 ? [] : THESAURUS.filter(item =>
-    item.ss[0].toLowerCase().slice(0, inputLength) === inputValue
+  return inputLength <= 2 ? [] : THESAURUS.filter(item =>
+    item.ss.find(item => item.slice(0, inputLength) === inputValue)
   );
 };
 

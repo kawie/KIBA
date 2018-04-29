@@ -1,6 +1,9 @@
 import React from 'react';
 import { Formik, Field } from 'formik';
 
+import SmileIcon from './smile.svg';
+import FrownIcon from './frown.svg';
+
 class QuestionComponent extends React.Component {
   render() {
     return (
@@ -14,6 +17,8 @@ class QuestionComponent extends React.Component {
           max="6"
           step="4"
         />
+        <img src={ FrownIcon } className="icon" style={{ float: 'left' }} />
+        <img src={ SmileIcon } className="icon" style={{ float: 'right' }} />
       </div>
     );
   }

@@ -41,14 +41,23 @@ var inserts = {
       'Für Dich hört sich die automatisierte Zukunft nach einer energetischen Pattsituation an. Du erkennst aber den Vorteil davon, Projekte von allen Seiten zu beleuchten, was Dich letztendlich auf das gemeinsame Ziel einschwingen lässt.',
       'Du bist ganz eng im Loop mit deinen kybernetischen Schwingungen.'
     ],
+}
 
-
+var trainingGeneratorValues = {
+  'prefix': ['pro-', 'endo-', 'inter-', 'multi-', 'para-', 'prä-', 'post-', 'tele-', 'tri-', 'uni-', 'poly-'],
+  'adjective': ['bedürfnisorientierte', 'nutzerzentrierte', 'intelligente', 'nachhaltige', 'strategische', 'kritische', 'motivierte', 'kreative', 'emotionale', 'institutionelle', 'realistische', 'integrierte', 'moderierte', 'systematisierte', 'eingebettete'],
+  'competence': ['Energie-', 'Produktivitäts-', 'Veränderungs-', 'Emotionale-Intelligenz-', 'Innovations-', 'Handhabungs-', 'Trend-', 'Diversitäts-', 'Entscheidungs-', 'Reflektions-', 'Kompetenz-', 'Virtual Reality-', 'IoT-', 'Big Data-'],
+  'result': ['Zufriedenheit', 'Glückseligkeit', 'Vertrauen', 'Entspannung', 'Resilienz', 'Begeisterung', 'Entzücken', 'Freude']
 }
 
 class ResultPage extends React.Component {
   randomValueFromArray(array) {
     var random = Math.floor(Math.random()*array.length);
     return array[random];
+  }
+
+  trainingGenerator(values){
+    return this.randomValueFromArray(values.prefix) + this.randomValueFromArray(values.adjective) + " " + this.randomValueFromArray(values.competence) + this.randomValueFromArray(values.result);
   }
 
   calculateKIBAScore(values) {
@@ -72,7 +81,7 @@ class ResultPage extends React.Component {
         <div>
           <p>Als { this.randomValueFromArray(inserts.question3[this.props.values.question3]) } { this.props.values.jobTitle } siehst du der automatisierten Zukunft { this.randomValueFromArray(inserts.question1[this.props.values.question1]) } entgegen.</p>
           <p>Dein { this.randomValueFromArray(inserts.adjective5) }es Interesse an Neuerungen und Dein { this.randomValueFromArray(inserts.question4[this.props.values.question4]) } zeigen, dass deine persönlichen Mensch-Maschinen-Beziehungen in Zukunft { this.randomValueFromArray(inserts.adjective5) } aussehen werden. { this.randomValueFromArray(inserts.sentence6) } Das macht Dich äußerst beliebt bei Deinen Roboter-Kolleg/innen.</p>
-          <p>Wir empfehlen Dir daher nur noch eine Fortbildung für para-autorisierte Trend-Resilienz, um der Automatisierung bestens ausgebildet entgegen zu schreiten.</p>
+          <p>Wir empfehlen Dir daher nur noch eine Fortbildung für { this.trainingGenerator(trainingGeneratorValues) }, um der Automatisierung bestens ausgebildet entgegen zu schreiten.</p>
         </div>
       }
       {this.props.page == 2 &&

@@ -53,6 +53,7 @@ button, input {
 }
 .react-autosuggest__suggestions-container--open {
   max-height: 300px;
+  width: 400px;
   overflow: scroll;
 }
 .react-autosuggest__suggestions-list li {
@@ -64,11 +65,17 @@ button, input {
   background-color: #EEB44B;
   color: #102C30;
 }
+.icon {
+  width:75px;
+  height:75px;
+}
+
+
 
 input[type=range] {
   -webkit-appearance: none;
   width: 100%;
-  margin: 22.5px 0;
+  margin: 50px 0;
 }
 input[type=range]:focus {
   outline: none;
@@ -152,10 +159,30 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 @keyframes blinking {
-    from, to {
-        color: transparent;
-    }
-    50% {
-        color: #EEB44B;
-    }
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: #EEB44B;
+  }
+}
+@keyframes flicker {
+  0%{
+  opacity: .1;
+  }
+  15%{
+  opacity: .8;
+  }
+  20%{
+  opacity: .3;
+  }
+  83%{
+  opacity:1;
+  }
+  87%{
+  opacity:.3;
+  }
+  100%{
+  opacity: 1;
+  }
 }
