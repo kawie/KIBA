@@ -1,6 +1,7 @@
 import React from 'react';
 import { Formik, Field } from 'formik';
 import axios from 'axios';
+import KibaBar from './KibaBar.js';
 
 var inserts = {
   'question1': {
@@ -63,7 +64,7 @@ class ResultPage extends React.Component {
   calculateKIBAScore(values) {
     var futuromatPotential = this.props.values.futuromatPotential;
     var psychoPotential = 50 + this.props.values.question1 + this.props.values.question2 + this.props.values.question3 + this.props.values.question4;
-    return futuromatPotential + psychoPotential / 2
+    return this.props.values.job.id == 12345? futuromatPotential : futuromatPotential + psychoPotential / 2;
   }
 
   render() {
@@ -77,7 +78,12 @@ class ResultPage extends React.Component {
 
     return (
       <div className="resultPage">
-      {this.props.page == 1 &&
+      {this.props.page == 1 && this.props.values.job.id == 12345 &&
+        <div>
+          <p>Dein Beruf ist herausfordernd und geistig anspruchsvoll. Deine Stärken sind Entscheidungsfreude, Kommunikation und strategisches Denken. Der Großteil deiner Tätigkeiten lässt sich nicht automatisieren – dennoch bist du auf den technologischen Wandel der Arbeitswelt vorbereitet.</p>
+        </div>
+      }
+      {this.props.page == 1 && this.props.values.job.id != 12345 &&
         <div>
           <p>Als { this.randomValueFromArray(inserts.question3[this.props.values.question3]) } { this.props.values.jobTitle } siehst du der automatisierten Zukunft { this.randomValueFromArray(inserts.question1[this.props.values.question1]) } entgegen.</p>
           <p>Dein { this.randomValueFromArray(inserts.adjective5) }es Interesse an Neuerungen und Dein { this.randomValueFromArray(inserts.question4[this.props.values.question4]) } zeigen, dass deine persönlichen Mensch-Maschinen-Beziehungen in Zukunft { this.randomValueFromArray(inserts.adjective5) } aussehen werden. { this.randomValueFromArray(inserts.sentence6) } Das macht Dich äußerst beliebt bei Deinen Roboter-Kolleg/innen.</p>
@@ -88,6 +94,7 @@ class ResultPage extends React.Component {
         <div>
           <p>Jetzt bekommst du Dein KIBA!<br/>
           Dein KIBA besteht aus { this.calculateKIBAScore(this.props.values) }% KI und { 100 - this.calculateKIBAScore(this.props.values) }% BA.</p>
+          <KibaBar ki={ this.calculateKIBAScore(this.props.values) } />
           <p>Das individuell auf Dich abgestimmte KIBA-Elixier bringt dich in Automatisierungs-Balance. KI motiviert mit seinem hohen Anteil an Antioxidantien zum Lernen neuer Skills. BA wirkt ausgleichend gegen etwaige Substituierbarkeits-Ängste und virtuelle Sorgen, denn das enthaltene Magnesium stärkt die Nerven und bekämpft zu hohen Blutdruck.</p>
         </div>
       }
