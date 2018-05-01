@@ -54,7 +54,7 @@ class TaskRating extends React.Component {
       return(
         <div>
           <h2>Das Laden der Aufgaben dauert lange.</h2>
-          <p>Ist <pre>KIBA-Backend</pre> erreichbar?</p>
+          <p>Ist <code>KIBA-Backend</code> erreichbar?</p>
         </div>
       );
     }

@@ -74,12 +74,12 @@ class Wizard extends React.Component {
               {!isLastPage && <button type="submit" style={{float: 'right'}}>WEITER »</button>}
               {isLastPage && (
                 <button type="submit" style={{float: 'right'}} disabled={isSubmitting}>
-                  FERTIG
+                  FERTIG!
                 </button>
               )}
             </div>
 
-            <pre>{JSON.stringify(values, null, 2)}</pre>
+            <pre style={{display: 'none'}}>{JSON.stringify(values, null, 2)}</pre>
           </form>
         )}
       />
