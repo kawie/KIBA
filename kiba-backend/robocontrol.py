@@ -47,7 +47,8 @@ class RoboControl:
 
 	def testButton(self):
 		button_led.blink()
-		button.when_pressed = print("Button pressed!")
+		button.wait_for_press()
+		print("Button was pressed!")
 
 	def clean(self):
 		self.ready(500)
