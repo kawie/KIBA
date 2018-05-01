@@ -21,7 +21,8 @@ class Captcha extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      image: null
+      image: null,
+      captchaOpen: false
     }
     this.onPick = this.onPick.bind(this)
   }
@@ -30,16 +31,37 @@ class Captcha extends Component {
     this.setState({image})
   }
 
+  onConfirm(onComplete) {
+    onComplete(true);
+  }
+
+  toggleCaptcha() {
+    this.setState({
+      captchaOpen: !this.state.captchaOpen
+    })
+  }
+
   render() {
     return (
       <div>
-        <p>Wählen Sie alle Bilder mit KIBA aus.</p>
-        <ImagePicker
-          images={imageList.map((image, i) => ({src: image, value: i}))}
-          onPick={this.onPick}
-          multiple={true}
-        />
-        <button type="button" className="captchaButton" onClick={() => this.props.onComplete(true)}>Bestätigen</button>
+        <div style={{width: '360px', margin: '50px auto'}}>
+          <label>
+            <input type="checkbox" onClick={ () => this.toggleCaptcha()} /> Ich bin kein Roboter
+            <span class="checkmark"></span>
+          </label>
+        </div>
+
+        {this.state.captchaOpen &&
+          <div className="captchaBox">
+            <p style={{ fontSize: '.8em'}}>Wähle alle Bilder mit <b>KIBA</b> aus.</p>
+            <ImagePicker
+              images={imageList.map((image, i) => ({src: image, value: i}))}
+              onPick={this.onPick}
+              multiple={true}
+            />
+            <button type="button" className="captchaButton" onClick={() => this.onConfirm(this.props.onComplete)}>Bestätigen</button>
+          </div>
+        }
       </div>
     )
   }

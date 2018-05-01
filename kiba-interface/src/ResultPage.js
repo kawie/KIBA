@@ -80,7 +80,7 @@ class ResultPage extends React.Component {
       <div className="resultPage">
       {this.props.page == 1 && this.props.values.job.id == 12345 &&
         <div>
-          <p>Dein Beruf ist herausfordernd und geistig anspruchsvoll. Deine Stärken sind Entscheidungsfreude, Kommunikation und strategisches Denken. Der Großteil deiner Tätigkeiten lässt sich nicht automatisieren – dennoch bist du auf den technologischen Wandel der Arbeitswelt vorbereitet.</p>
+          <p>Dein Beruf ist herausfordernd und geistig anspruchsvoll. Deine Stärken sind Entscheidungsfreude, Kommunikation und strategisches Denken. Der Großteil deiner Tätigkeiten lässt sich nicht automatisieren – gleichwohl bist du auf den technologischen Wandel der Arbeitswelt vorbereitet.</p>
         </div>
       }
       {this.props.page == 1 && this.props.values.job.id != 12345 &&

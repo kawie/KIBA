@@ -24,6 +24,9 @@ body {
   align-items: center;
   justify-content: center;
 }
+.page2 {
+  display: block;
+}
 button, input {
   border: 5px solid #EEB44B;
   color: #EEB44B;
@@ -68,6 +71,67 @@ button, input {
 .icon {
   width:75px;
   height:75px;
+}
+.captchaBox {
+  animation: flicker .6s ease 1;
+}
+.question{
+  width: 100%;
+}
+
+input[type=checkbox] {
+  display: none;
+}
+label {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+}
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: -15px;
+  left: -50px;
+  height: 50px;
+  width: 50px;
+  background-color: #eee;
+  border: 5px solid #EEB44B;
+}
+
+/* On mouse-over, add a grey background color */
+label:hover input[type=checkbox] ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+label input[type=checkbox]:checked ~ .checkmark {
+  background-color: #EEB44B;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+label input[type=checkbox]:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+label .checkmark:after {
+  left: 18px;
+  top: 10px;
+  width: 10px;
+  height: 20px;
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 
 

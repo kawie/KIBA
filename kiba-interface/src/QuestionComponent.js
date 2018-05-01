@@ -7,7 +7,7 @@ import FrownIcon from './frown.svg';
 class QuestionComponent extends React.Component {
   render() {
     return (
-      <div>
+      <div className="question">
         <label>{ this.props.question }</label>
         <Field
           name={ this.props.name }
