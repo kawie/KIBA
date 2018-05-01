@@ -35,11 +35,10 @@ var inserts = {
     'angenehm'
   ],
   'sentence6': [
-      'Dein unbestechliches Gefühl für Wahrheit und Gerechtigkeit verleiht Dir ein starkes moralisches Rückgrat in der automatisierten Zusammenarbeit.',
-      'Als Filter setzt Du ein systematisierendes und Überblick verschaffendes Denken ein. Beste Voraussetzung für die digitalen Zukunftswelten.',
-      'Deshalb trägst Du durch intensive Planung Deiner Aktivitäten dazu bei, dass die automatisierte Zusammenarbeit besonders organisch abläuft.',
-      'Beziehungen sind für Dich die wichtigste Res­source und das Streben nach erfüllten Beziehungen be­stimmt auch dein Leben in der automatisierten Zukunft. Deshalb engagierst du dich für das Wohlergehen von Automaten.',
-      'Für Dich hört sich die automatisierte Zukunft nach einer energetischen Pattsituation an. Du erkennst aber den Vorteil davon, Projekte von allen Seiten zu beleuchten, was Dich letztendlich auf das gemeinsame Ziel einschwingen lässt.',
+      'Dein unbestechliches Gefühl für Gerechtigkeit verleiht Dir ein starkes Rückgrat in der automatisierten Zusammenarbeit.',
+      'Dein Kontakt zur Umwelt findet am liebsten gefiltert statt. Dabei setzt du ein systematisierendes & Überblick verschaffendes Denken ein.',
+      'Durch intensive Planung Deiner Aktivitäten trägst du dazu bei, dass die automatisierte Zusammenarbeit besonders organisch abläuft.',
+      'Für Dich hört sich die automatisierte Zukunft nach einer energetischen Pattsituation an. Du erkennst aber den Vorteil davon, Projekte von allen Seiten zu beleuchten.',
       'Du bist ganz eng im Loop mit deinen kybernetischen Schwingungen.'
     ],
 }
