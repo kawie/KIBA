@@ -78,6 +78,12 @@ button, input {
 .question{
   width: 100%;
 }
+p.kibaScoreResult {
+  font-size: 2.2em;
+  line-height: 1.2em;
+  letter-spacing: 0.05em;
+  text-align: right;
+}
 
 input[type=checkbox] {
   display: none;

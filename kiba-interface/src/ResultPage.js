@@ -85,17 +85,17 @@ class ResultPage extends React.Component {
       }
       {this.props.page == 1 && this.props.values.job.id != 12345 &&
         <div>
-          <p>Als { this.randomValueFromArray(inserts.question3[this.props.values.question3]) } { this.props.values.jobTitle } siehst du der automatisierten Zukunft { this.randomValueFromArray(inserts.question1[this.props.values.question1]) } entgegen.</p>
-          <p>Dein { this.randomValueFromArray(inserts.question2[this.props.values.question2]) } Interesse an Neuerungen und Dein { this.randomValueFromArray(inserts.question4[this.props.values.question4]) } zeigen, dass deine persönlichen Mensch-Maschinen-Beziehungen in Zukunft { this.randomValueFromArray(inserts.adjective5) } aussehen werden. { this.randomValueFromArray(inserts.sentence6) } Das macht Dich äußerst beliebt bei Deinen Roboter-Kolleg/innen.</p>
-          <p>Wir empfehlen Dir daher nur noch eine Fortbildung für { this.trainingGenerator(trainingGeneratorValues) }, um der Automatisierung bestens ausgebildet entgegen zu schreiten.</p>
+          <p>Als <b>{ this.randomValueFromArray(inserts.question3[this.props.values.question3]) } { this.props.values.jobTitle }</b> siehst du der automatisierten Zukunft { this.randomValueFromArray(inserts.question1[this.props.values.question1]) } entgegen.</p>
+          <p>Dein { this.randomValueFromArray(inserts.question2[this.props.values.question2]) } Interesse an Neuerungen und Dein { this.randomValueFromArray(inserts.question4[this.props.values.question4]) } zeigen, dass deine persönlichen Mensch-Maschinen-Beziehungen in Zukunft { this.randomValueFromArray(inserts.adjective5) } aussehen werden.</p>
+          <p>{ this.randomValueFromArray(inserts.sentence6) } Das macht Dich äußerst beliebt bei Deinen Roboter-Kolleg/innen.</p>
+          <p>KIBA empfielt eine <b>Fortbildung für { this.trainingGenerator(trainingGeneratorValues) }</b>, um der Automatisierung bestens ausgebildet entgegen zu schreiten.</p>
         </div>
       }
       {this.props.page == 2 &&
         <div>
-          <p>Jetzt bekommst du Dein KIBA!<br/>
-          Dein KIBA besteht aus { this.calculateKIBAScore(this.props.values) }% KI und { 100 - this.calculateKIBAScore(this.props.values) }% BA.</p>
+          <p>Jetzt bekommst du Dein KIBA!</p>
           <KibaBar ki={ this.calculateKIBAScore(this.props.values) } />
-          <p>Das individuell auf Dich abgestimmte KIBA-Elixier bringt dich in Automatisierungs-Balance. KI motiviert mit seinem hohen Anteil an Antioxidantien zum Lernen neuer Skills. BA wirkt ausgleichend gegen etwaige Substituierbarkeits-Ängste und virtuelle Sorgen, denn das enthaltene Magnesium stärkt die Nerven und bekämpft zu hohen Blutdruck.</p>
+          <p className="kibaScoreResult">KI { this.calculateKIBAScore(this.props.values) }%<br/>BA { 100 - this.calculateKIBAScore(this.props.values) }%</p>
         </div>
       }
       </div>
