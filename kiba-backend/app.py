@@ -39,6 +39,11 @@ class KIBAlights(Resource):
 			robo.lights("off")
 			return {"kiba": "lights off"}
 
+class KIBAtestButton(Resource):
+	def get(self):
+		robo.testButton()
+		return {"kiba": "testButton"}
+
 class JobData(Resource):
 	def get(self, jobid):
 		if(jobid == 12345):
@@ -55,6 +60,7 @@ api.add_resource(KIBA, '/kiba/<int:percentage>')
 api.add_resource(KIBAreset, '/kiba/reset')
 api.add_resource(KIBAclean, '/kiba/clean')
 api.add_resource(KIBAlights, '/kiba/lights/<string:command>')
+api.add_resource(KIBAtestButton, '/kiba/testButton')
 api.add_resource(JobData, '/jobdata/<int:jobid>')
 
 if __name__ == '__main__':

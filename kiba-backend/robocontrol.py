@@ -38,10 +38,16 @@ class RoboControl:
 	def lights(self, command):
 		if(command == "on"):
 			cup_light.on()
+			button_led.on()
 			self.status_leds_on()
 		else:
 			cup_light.off()
+			button_led.off()
 			self.status_leds_off()
+
+	def testButton(self):
+		button_led.blink()
+		button.when_pressed = print "Button pressed!"
 
 	def clean(self):
 		self.ready(500)
