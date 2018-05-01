@@ -53,8 +53,8 @@ class TaskRating extends React.Component {
     } else {
       return(
         <div>
-          <h2>Beim Laden der Aufgaben ist ein Fehler aufgetreten.</h2>
-          <p>Wahrscheinlich ist <pre>KIBA-Backend</pre> nicht erreichbar.</p>
+          <h2>Das Laden der Aufgaben dauert lange.</h2>
+          <p>Ist <pre>KIBA-Backend</pre> erreichbar?</p>
         </div>
       );
     }

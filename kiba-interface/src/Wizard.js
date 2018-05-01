@@ -30,12 +30,19 @@ class Wizard extends React.Component {
     return activePage.props.validate ? activePage.props.validate(values) : {};
   };
 
-  handleSubmit = (values, bag) => {
+  handleSubmit = (values, bag, initialValues) => {
     const { children, onSubmit } = this.props;
     const { page } = this.state;
     const isLastPage = page === React.Children.count(children) - 1;
     if (isLastPage) {
-      return onSubmit(values);
+      var lastValues = values;
+      this.setState(state => ({
+        page: 0,
+      }));
+      bag.resetForm();
+      bag.setValues(this.props.initialValues);
+      bag.setFieldValue('serverIP', lastValues.serverIP);
+      return onSubmit(lastValues);
     } else {
       this.next(values);
       bag.setSubmitting(false);
@@ -72,7 +79,7 @@ class Wizard extends React.Component {
               )}
             </div>
 
-            <pre style={{display:'none'}}>{JSON.stringify(values, null, 2)}</pre>
+            <pre>{JSON.stringify(values, null, 2)}</pre>
           </form>
         )}
       />

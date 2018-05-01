@@ -31,8 +31,17 @@ class Captcha extends Component {
     this.setState({image})
   }
 
+  captchaTest(item) {
+    return item.value == 2 || item.value == 3 || item.value == 6 || item.value == 8
+  }
+
   onConfirm(onComplete) {
-    onComplete(true);
+    if (this.state.image.every(this.captchaTest) && this.state.image.length == 4){
+      this.toggleCaptcha();
+      onComplete(true);
+    } else {
+      alert("Deine Lösung ist nicht korrekt. Bitte versuche es noch einmal.");
+    }
   }
 
   toggleCaptcha() {
@@ -47,7 +56,7 @@ class Captcha extends Component {
         <div style={{width: '360px', margin: '50px auto'}}>
           <label>
             <input type="checkbox" onClick={ () => this.toggleCaptcha()} /> Ich bin kein Roboter
-            <span class="checkmark"></span>
+            <span className="checkmark"></span>
           </label>
         </div>
 

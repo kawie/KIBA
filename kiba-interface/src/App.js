@@ -55,12 +55,11 @@ class App extends Component {
               question3: 2,
               question4: 2,
               captchaComplete: false,
-              serverIP: 'localhost'
+              serverIP: '192.168.4.1'
             }}
             onSubmit={(values, actions) => {
               sleep(300).then(() => {
-                window.alert(JSON.stringify(values, null, 2));
-                actions.setSubmitting(false);
+                console.log(JSON.stringify(values, null, 2));
               });
             }}
           >
@@ -95,19 +94,19 @@ class App extends Component {
             </Wizard.Page>
             <Wizard.Page>
               <QuestionComponent name="question1"
-              question="Kannst du dir vorstellen mit Robotern zusammen zu arbeiten?" />
+              question="Ich kann mir vorstellen, mit Robotern zusammen zu arbeiten." />
             </Wizard.Page>
             <Wizard.Page>
               <QuestionComponent name="question2"
-              question="Ich mag gerne Veraenderung in meinem Leben." />
+              question="Ich mag Veränderung in meinem Leben." />
             </Wizard.Page>
             <Wizard.Page>
               <QuestionComponent name="question3"
-              question="Ich fuehle mich wohl, wenn Menschen eine emotionale Reaktion von mir erwarten." />
+              question="Ich fühle mich wohl, wenn Menschen eine emotionale Reaktion von mir erwarten." />
             </Wizard.Page>
             <Wizard.Page>
               <QuestionComponent name="question4"
-              question="Regeln aergern mich." />
+              question="Regeln ärgern mich." />
             </Wizard.Page>
             <Wizard.Page>
               <Field
