@@ -11,7 +11,7 @@ var inserts = {
     '6': ['begeistert', 'leidenschaftlich', 'fasziniert', 'inspiriert']
   },
   'question2': {
-    '-6': ['nicht vorhandenes'],
+    '-6': ['wenig ausgeprägtes'],
     '-2': ['geringes'],
     '2': ['durschnittliches'],
     '6': ['großes']
@@ -48,7 +48,7 @@ var trainingGeneratorValues = {
   'prefix': ['pro-', 'endo-', 'inter-', 'multi-', 'para-', 'prä-', 'post-', 'tele-', 'tri-', 'uni-', 'poly-'],
   'adjective': ['bedürfnisorientierte', 'nutzerzentrierte', 'intelligente', 'nachhaltige', 'strategische', 'kritische', 'motivierte', 'kreative', 'emotionale', 'institutionelle', 'realistische', 'integrierte', 'moderierte', 'systematisierte', 'eingebettete'],
   'competence': ['Energie-', 'Produktivitäts-', 'Veränderungs-', 'Emotionale-Intelligenz-', 'Innovations-', 'Handhabungs-', 'Trend-', 'Diversitäts-', 'Entscheidungs-', 'Reflektions-', 'Kompetenz-', 'Virtual Reality-', 'IoT-', 'Big Data-'],
-  'result': ['Zufriedenheit', 'Glückseligkeit', 'Vertrauen', 'Entspannung', 'Resilienz', 'Begeisterung', 'Entzücken', 'Freude']
+  'result': ['Zufriedenheit', 'Glückseligkeit', 'Gewissheit', 'Entspannung', 'Resilienz', 'Begeisterung', 'Entzückung', 'Freude']
 }
 
 class ResultPage extends React.Component {
@@ -86,7 +86,7 @@ class ResultPage extends React.Component {
       {this.props.page == 1 && this.props.values.job.id != 12345 &&
         <div>
           <p>Als { this.randomValueFromArray(inserts.question3[this.props.values.question3]) } { this.props.values.jobTitle } siehst du der automatisierten Zukunft { this.randomValueFromArray(inserts.question1[this.props.values.question1]) } entgegen.</p>
-          <p>Dein { this.randomValueFromArray(inserts.adjective5) }es Interesse an Neuerungen und Dein { this.randomValueFromArray(inserts.question4[this.props.values.question4]) } zeigen, dass deine persönlichen Mensch-Maschinen-Beziehungen in Zukunft { this.randomValueFromArray(inserts.adjective5) } aussehen werden. { this.randomValueFromArray(inserts.sentence6) } Das macht Dich äußerst beliebt bei Deinen Roboter-Kolleg/innen.</p>
+          <p>Dein { this.randomValueFromArray(inserts.question2[this.props.values.question2]) } Interesse an Neuerungen und Dein { this.randomValueFromArray(inserts.question4[this.props.values.question4]) } zeigen, dass deine persönlichen Mensch-Maschinen-Beziehungen in Zukunft { this.randomValueFromArray(inserts.adjective5) } aussehen werden. { this.randomValueFromArray(inserts.sentence6) } Das macht Dich äußerst beliebt bei Deinen Roboter-Kolleg/innen.</p>
           <p>Wir empfehlen Dir daher nur noch eine Fortbildung für { this.trainingGenerator(trainingGeneratorValues) }, um der Automatisierung bestens ausgebildet entgegen zu schreiten.</p>
         </div>
       }
