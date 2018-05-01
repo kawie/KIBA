@@ -67,14 +67,14 @@ class Wizard extends React.Component {
             <div className="buttons" style={{width: '560px', margin: '10px auto 0 auto'}}>
               {page > 0 && (
                 <button type="button" style={{float: 'left'}} onClick={this.previous}>
-                  « ZURUECK
+                  « ZURÜCK
                 </button>
               )}
 
               {!isLastPage && <button type="submit" style={{float: 'right'}}>WEITER »</button>}
               {isLastPage && (
                 <button type="submit" style={{float: 'right'}} disabled={isSubmitting}>
-                  OK
+                  FERTIG
                 </button>
               )}
             </div>
