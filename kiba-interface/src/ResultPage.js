@@ -92,9 +92,10 @@ class ResultPage extends React.Component {
       }
       {this.props.page == 2 &&
         <div>
-          <p>Jetzt bekommst du Dein KIBA!</p>
+          <p style={{lineHeight:'1.2em'}}><b>1.</b> Drücke den <b>blinkenden grünen Knopf</b> um die Elixir-Ausgabe zu starten!<span className="cursor">&#9608;</span></p>
+          <p style={{lineHeight:'1.2em'}}><b>2.</b> Fertige ein Dokumentationsfoto an und teile es unter <b>#KIBAyourself</b></p>
           <KibaBar ki={ this.calculateKIBAScore(this.props.values) } />
-          <p className="kibaScoreResult">KI { this.calculateKIBAScore(this.props.values) }%<br/>BA { 100 - this.calculateKIBAScore(this.props.values) }%</p>
+          <p className="kibaScoreResult captchaBox">KI { this.calculateKIBAScore(this.props.values) }%<br/>BA { 100 - this.calculateKIBAScore(this.props.values) }%</p>
         </div>
       }
       </div>

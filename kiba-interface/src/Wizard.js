@@ -56,23 +56,23 @@ class Wizard extends React.Component {
         render={({ values, handleSubmit, isSubmitting, handleReset, setFieldValue }) => (
           <form onSubmit={handleSubmit}>
             <div className={ "formPage page" + page }>{activePage}</div>
-            <div className="progress">Seite { page + 1 } / 10</div>
-            <div className="buttons">
+            <div className="progress">Schritt { page + 1 } / 10</div>
+            <div className="buttons" style={{width: '560px', margin: '10px auto 0 auto'}}>
               {page > 0 && (
-                <button type="button" onClick={this.previous}>
+                <button type="button" style={{float: 'left'}} onClick={this.previous}>
                   « ZURUECK
                 </button>
               )}
 
-              {!isLastPage && <button type="submit">WEITER »</button>}
+              {!isLastPage && <button type="submit" style={{float: 'right'}}>WEITER »</button>}
               {isLastPage && (
-                <button type="submit" disabled={isSubmitting}>
+                <button type="submit" style={{float: 'right'}} disabled={isSubmitting}>
                   OK
                 </button>
               )}
             </div>
 
-            <pre>{JSON.stringify(values, null, 2)}</pre>
+            <pre style={{display:'none'}}>{JSON.stringify(values, null, 2)}</pre>
           </form>
         )}
       />

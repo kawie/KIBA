@@ -7,6 +7,10 @@ body {
   font-family: 'Ubuntu Mono', monospace;
 }
 
+p > b {
+  background-color: #EEB44B;
+  color: #102C30;
+}
 .App {
   text-align: center;
 }
@@ -24,8 +28,20 @@ body {
   align-items: center;
   justify-content: center;
 }
+.formPage::-webkit-scrollbar {
+  width: 15px;
+}
+.formPage::-webkit-scrollbar-thumb {
+  background: #EEB44B;
+}
+.formPage::-webkit-scrollbar-track, .formPage::-webkit-scrollbar-corner {
+  background: transparent;
+}
 .page2 {
   display: block;
+}
+.page7, .page8, .page9 {
+  overflow: hidden;
 }
 button, input {
   border: 5px solid #EEB44B;
@@ -72,6 +88,10 @@ button, input {
   width:75px;
   height:75px;
 }
+.iconSmall {
+  width:40px;
+  height:40px;
+}
 .captchaBox {
   animation: flicker .6s ease 1;
 }
@@ -93,6 +113,11 @@ label {
   position: relative;
   padding-left: 35px;
   margin-bottom: 12px;
+}
+.page2 label {
+  margin-bottom: 0;
+  padding-left: 0;
+  margin-top: 40px;
 }
 /* Create a custom checkbox */
 .checkmark {
