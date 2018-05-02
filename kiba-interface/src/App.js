@@ -67,11 +67,6 @@ class App extends Component {
               <div>
                 <h1>KIBA</h1>
                 <p style={{ lineHeight: '2em' }}>V 0.1.0 ©️2018<br/>Int. KIBA Systems<br/>All systems ready!<span className="cursor">&#9608;</span></p>
-                <Field
-                  name="adminPage"
-                  render={({ form: { values } }) =>
-                  (<AdminPage values={values} />)}
-                />
               </div>
             </Wizard.Page>
             <Wizard.Page>
