@@ -17,6 +17,10 @@ p > b {
 .cursor {
   animation: blinking 1s ease-in-out infinite;
 }
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+  animation: blinking 5s ease-in-out 1;
+}
 .formPage {
   max-width: 450px;
   height: 650px;
@@ -50,7 +54,7 @@ button, input {
   font-size: 1.2em;
 }
 .resultPage p {
-  font-size: 0.8em;
+  font-size: 0.7em;
   text-align: left;
   hyphens: auto;
 }
@@ -279,5 +283,14 @@ input[type=range]:focus::-ms-fill-upper {
   }
   100%{
   opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
   }
 }

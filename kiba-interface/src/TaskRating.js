@@ -52,7 +52,7 @@ class TaskRating extends React.Component {
       );
     } else {
       return(
-        <div>
+        <div className="fadeIn">
           <h2>Das Laden der Aufgaben dauert lange.</h2>
           <p>Ist <code>KIBA-Backend</code> erreichbar?</p>
         </div>

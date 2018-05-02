@@ -7,13 +7,13 @@ var inserts = {
   'question1': {
     '-6': ['skeptisch', 'ablehnend', 'widerspenstig', 'verschlossen'],
     '-2': ['misstrauisch', 'kritisch', 'vorsichtig', 'zweifelnd'],
-    '2': ['zuversichtlich', 'optimistisch', 'eingenommen', 'unvoreingenommen'],
+    '2': ['zuversichtlich', 'optimistisch', 'unvoreingenommen'],
     '6': ['begeistert', 'leidenschaftlich', 'fasziniert', 'inspiriert']
   },
   'question2': {
     '-6': ['wenig ausgeprägtes'],
     '-2': ['geringes'],
-    '2': ['durschnittliches'],
+    '2': ['positives'],
     '6': ['großes']
   },
   'question3': {
@@ -84,6 +84,7 @@ class ResultPage extends React.Component {
       }
       {this.props.page == 1 && this.props.values.job.id != 12345 &&
         <div>
+          <p>Der KIBA-Algorithmus hat für dich folgende Zukunftsprognose errechnet:</p>
           <p>Als <b>{ this.randomValueFromArray(inserts.question3[this.props.values.question3]) } { this.props.values.jobTitle }</b> siehst du der automatisierten Zukunft { this.randomValueFromArray(inserts.question1[this.props.values.question1]) } entgegen.</p>
           <p>Dein { this.randomValueFromArray(inserts.question2[this.props.values.question2]) } Interesse an Neuerungen und Dein { this.randomValueFromArray(inserts.question4[this.props.values.question4]) } zeigen, dass deine persönlichen Mensch-Maschinen-Beziehungen in Zukunft { this.randomValueFromArray(inserts.adjective5) } aussehen werden.</p>
           <p>{ this.randomValueFromArray(inserts.sentence6) } Das macht Dich äußerst beliebt bei Deinen Roboter-Kolleg/innen.</p>
@@ -92,8 +93,8 @@ class ResultPage extends React.Component {
       }
       {this.props.page == 2 &&
         <div>
-          <p style={{lineHeight:'1.2em'}}><b>1.</b> Drücke den <b>blinkenden grünen Knopf</b> um die Elixir-Ausgabe zu starten!<span className="cursor">&#9608;</span></p>
-          <p style={{lineHeight:'1.2em'}}><b>2.</b> Fertige ein Dokumentationsfoto an und teile es unter <b>#KIBAyourself</b></p>
+          <p style={{lineHeight:'1.2em', fontSize: '0.8em'}}><b>1.</b> Drücke den <b>blinkenden grünen Knopf</b> um die Elixir-Ausgabe zu starten!<span className="cursor">&#9608;</span></p>
+          <p style={{lineHeight:'1.2em', fontSize: '0.8em'}}><b>2.</b> Fertige ein Dokumentationsfoto an und teile es unter <b>#KIBAyourself</b></p>
           <KibaBar ki={ this.calculateKIBAScore(this.props.values) } />
           <p className="kibaScoreResult captchaBox">KI { this.calculateKIBAScore(this.props.values) }%<br/>BA { 100 - this.calculateKIBAScore(this.props.values) }%</p>
         </div>
