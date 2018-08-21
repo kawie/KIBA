@@ -99,8 +99,9 @@ class ResultPage extends React.Component {
         <div>
           <p style={{lineHeight:'1.2em', fontSize: '0.8em'}}><b>1.</b> Drücke den <b>blinkenden grünen Knopf</b> um die Elixir-Ausgabe zu starten!<span className="cursor">&#9608;</span></p>
           <p style={{lineHeight:'1.2em', fontSize: '0.8em'}}><b>2.</b> Fertige ein Dokumentationsfoto an und teile es unter <b>#KIBAyourself</b></p>
-          <KibaBar ki={ this.calculateKIBAScore(this.props.values) } />
+          <KibaBar ba={ 100 - this.calculateKIBAScore(this.props.values) } />
           <p className="kibaScoreResult captchaBox">KI { this.calculateKIBAScore(this.props.values) }%<br/>BA { 100 - this.calculateKIBAScore(this.props.values) }%</p>
+          <p style={{clear:'both', textAlign:'center', paddingTop:'30px'}}>www.kiba.science</p>
         </div>
       }
       </div>

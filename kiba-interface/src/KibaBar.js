@@ -9,7 +9,7 @@ class KibaBar extends React.Component {
 
     var barStyle = {
       flex: '1',
-      height: this.props.ki + '%',
+      height: this.props.ba + '%',
       backgroundColor: '#EEB44B',
       borderRadius: '0 0 20px 20px'
     };
