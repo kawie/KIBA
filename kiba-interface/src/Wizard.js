@@ -1,5 +1,6 @@
 import React from 'react';
 import { Formik, Field } from 'formik';
+import axios from 'axios';
 
 class Wizard extends React.Component {
   static Page = ({ children }) => children;
@@ -42,6 +43,15 @@ class Wizard extends React.Component {
       bag.resetForm();
       bag.setValues(this.props.initialValues);
       bag.setFieldValue('serverIP', lastValues.serverIP);
+
+      axios.post('http://' + lastValues.serverIP + ':5000/stats', lastValues)
+      .then((response) => {
+        console.log(response)
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
       return onSubmit(lastValues);
     } else {
       this.next(values);

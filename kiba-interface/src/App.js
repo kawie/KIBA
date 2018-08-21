@@ -37,8 +37,6 @@ class App extends Component {
   }
 
   handleSubmit(event) {
-    axios.get('http://127.0.0.1:5000/' + this.state.value)
-    .then(response => console.log(response))
     event.preventDefault();
   }
 
@@ -67,6 +65,11 @@ class App extends Component {
               <div>
                 <h1>KIBA</h1>
                 <p style={{ lineHeight: '2em' }}>V 0.1.0 ©️2018<br/>Int. KIBA Systems<br/>All systems ready!<span className="cursor">&#9608;</span></p>
+                <Field
+                  name="adminPage"
+                  render={({ form: { values } }) =>
+                  (<AdminPage values={values} />)}
+                />
               </div>
             </Wizard.Page>
             <Wizard.Page>
@@ -112,15 +115,15 @@ class App extends Component {
             <Wizard.Page>
               <Field
                 name="resultPage"
-                render={({ form: { values } }) =>
-                (<ResultPage values={values} page="1" />)}
+                render={({ form: { values, setFieldValue } }) =>
+                (<ResultPage onComplete={(response) => { setFieldValue('KI', response); setFieldValue('BA', 100-response); }} values={values} page="1" />)}
               />
             </Wizard.Page>
             <Wizard.Page>
               <Field
                 name="resultPage"
-                render={({ form: { values } }) =>
-                (<ResultPage values={values} page="2" />)}
+                render={({ form: { values, setFieldValue } }) =>
+                (<ResultPage onComplete={(response) => { setFieldValue('KI', response); setFieldValue('BA', 100-response); }} values={values} page="2" />)}
               />
             </Wizard.Page>
           </Wizard>

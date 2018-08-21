@@ -99,3 +99,6 @@ ENV/
 
 # mypy
 .mypy_cache/
+kiba-interface/.firebaserc
+kiba-interface/.netlify
+kiba-backend/stats.json

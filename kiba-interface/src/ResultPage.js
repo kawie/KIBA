@@ -63,7 +63,11 @@ class ResultPage extends React.Component {
   calculateKIBAScore(values) {
     var futuromatPotential = this.props.values.futuromatPotential;
     var psychoPotential = 50 + this.props.values.question1 + this.props.values.question2 + this.props.values.question3 + this.props.values.question4;
-    return this.props.values.job.id == 12345? futuromatPotential : futuromatPotential + psychoPotential / 2;
+    return this.props.values.job.id == 12345? futuromatPotential : (futuromatPotential + psychoPotential) / 2;
+  }
+
+  componentDidMount(){
+    this.props.onComplete(this.calculateKIBAScore(this.props.values));
   }
 
   render() {
@@ -85,7 +89,7 @@ class ResultPage extends React.Component {
       {this.props.page == 1 && this.props.values.job.id != 12345 &&
         <div>
           <p>Der KIBA-Algorithmus hat für dich folgende Zukunftsprognose errechnet:</p>
-          <p>Als <b>{ this.randomValueFromArray(inserts.question3[this.props.values.question3]) } { this.props.values.jobTitle }</b> siehst du der automatisierten Zukunft { this.randomValueFromArray(inserts.question1[this.props.values.question1]) } entgegen.</p>
+          <p>Als <b>{ this.randomValueFromArray(inserts.question3[this.props.values.question3]) } { (this.props.values.jobTitle && this.props.values.captchaComplete)? this.props.values.jobTitle : this.props.values.captchaComplete? "Persönlichkeit" : "Roboter" }</b> siehst du der automatisierten Zukunft { this.randomValueFromArray(inserts.question1[this.props.values.question1]) } entgegen.</p>
           <p>Dein { this.randomValueFromArray(inserts.question2[this.props.values.question2]) } Interesse an Neuerungen und Dein { this.randomValueFromArray(inserts.question4[this.props.values.question4]) } zeigen, dass deine persönlichen Mensch-Maschinen-Beziehungen in Zukunft { this.randomValueFromArray(inserts.adjective5) } aussehen werden.</p>
           <p>{ this.randomValueFromArray(inserts.sentence6) } Das macht Dich äußerst beliebt bei Deinen Roboter-Kolleg/innen.</p>
           <p>KIBA empfielt eine <b>Fortbildung für { this.trainingGenerator(trainingGeneratorValues) }</b>, um der Automatisierung bestens ausgebildet entgegen zu schreiten.</p>

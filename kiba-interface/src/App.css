@@ -32,13 +32,13 @@ p > b {
   align-items: center;
   justify-content: center;
 }
-.formPage::-webkit-scrollbar {
+.formPage::-webkit-scrollbar, .react-autosuggest__suggestions-container--open::-webkit-scrollbar {
   width: 15px;
 }
-.formPage::-webkit-scrollbar-thumb {
+.formPage::-webkit-scrollbar-thumb, .react-autosuggest__suggestions-container--open::-webkit-scrollbar-thumb {
   background: #EEB44B;
 }
-.formPage::-webkit-scrollbar-track, .formPage::-webkit-scrollbar-corner {
+.formPage::-webkit-scrollbar-track, .formPage::-webkit-scrollbar-corner, .react-autosuggest__suggestions-container--open::-webkit-scrollbar-track, .react-autosuggest__suggestions-container--open::-webkit-scrollbar-corner {
   background: transparent;
 }
 .page2 {
@@ -75,14 +75,16 @@ button, input {
   list-style-type: none;
 }
 .react-autosuggest__suggestions-container--open {
-  max-height: 300px;
+  max-height: 400px;
   width: 400px;
-  overflow: scroll;
+  overflow: hidden;
+  overflow-y: scroll;
 }
 .react-autosuggest__suggestions-list li {
   font-size: .8em;
   text-align: left;
   margin-bottom: 3px;
+  padding: 5px 0;
 }
 .react-autosuggest__suggestion--highlighted{
   background-color: #EEB44B;
