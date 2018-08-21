@@ -5,6 +5,7 @@ from flask_restful import Resource, Api
 from flask_cors import CORS
 from robocontrol import RoboControl
 import requests
+import datetime
 from tinydb import TinyDB, Query
 
 
@@ -62,7 +63,9 @@ class JobData(Resource):
 
 class StatsData(Resource):
 	def post(self):
+		timestamp = datetime.datetime.now().isoformat()
 		json_data = request.get_json(force=True)
+		json_data["timestamp"] = timestamp
 		return {"id": db.insert(json_data)}
 
 
