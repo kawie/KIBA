@@ -102,3 +102,4 @@ ENV/
 kiba-interface/.firebaserc
 kiba-interface/.netlify
 kiba-backend/stats.json
+kiba-interface/netlify.toml

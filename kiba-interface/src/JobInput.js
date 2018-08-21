@@ -1,10 +1,11 @@
 import Autosuggest from 'react-autosuggest';
 import React from 'react';
 import { Formik, Field, withFormik } from 'formik';
-import { THESAURUS } from './thesaurus.js';
+
 
 // Teach Autosuggest how to calculate suggestions for any given input value.
 const getSuggestions = value => {
+  const THESAURUS = window.THESAURUS;
   const inputValue = value.trim().toUpperCase().replace(/\s+/g, ' ').replace(/Ä/g, 'AE').replace(/Ö/g, 'OE').replace(/Ü/g, 'UE').replace(/ß/g, 'SS').replace(/\//g, '');
   const inputLength = inputValue.length;
 
